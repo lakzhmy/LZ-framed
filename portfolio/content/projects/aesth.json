@@ -1,0 +1,22 @@
+{
+  "_id": "aesth",
+  "title": "Aesth",
+  "slug": "aesth",
+  "description": "Minimalist furniture collection combining modern aesthetics with sustainable materials and manufacturing processes.",
+  "coverImage": "/images/projects/aesth-cover.jpg",
+  "images": [
+    {
+      "url": "/images/projects/aesth-1.jpg",
+      "alt": "Aesth chair design",
+      "caption": "Signature chair design"
+    }
+  ],
+  "category": "Product Design",
+  "year": 2024,
+  "client": "Aesth Studio",
+  "role": "Industrial Designer, Product Designer",
+  "content": "Aesth is a furniture collection that prioritizes clean lines, functional beauty, and environmental responsibility. Each piece is designed to be timeless, modular, and manufactured using sustainable practices.",
+  "tags": ["Furniture Design", "Sustainability", "Minimalism", "Industrial Design"],
+  "featured": true,
+  "order": 3
+}

@@ -1,22 +1,11 @@
 export interface Project {
   _id: string
   title: string
-  slug: {
-    current: string
-  }
+  slug: string
   description: string
-  coverImage?: {
-    asset: {
-      _ref: string
-      url: string
-    }
-    alt?: string
-  }
+  coverImage?: string
   images?: Array<{
-    asset: {
-      _ref: string
-      url: string
-    }
+    url: string
     alt?: string
     caption?: string
   }>
@@ -24,7 +13,7 @@ export interface Project {
   year?: number
   client?: string
   role?: string
-  content?: any[]
+  content?: string
   tags?: string[]
   featured?: boolean
   order?: number

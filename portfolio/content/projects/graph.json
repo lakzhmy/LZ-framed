@@ -1,0 +1,22 @@
+{
+  "_id": "graph",
+  "title": "Graph",
+  "slug": "graph",
+  "description": "Data visualization platform that transforms complex datasets into intuitive, interactive visual stories.",
+  "coverImage": "/images/projects/graph-cover.jpg",
+  "images": [
+    {
+      "url": "/images/projects/graph-1.jpg",
+      "alt": "Graph dashboard interface",
+      "caption": "Interactive dashboard"
+    }
+  ],
+  "category": "UX/UI Design",
+  "year": 2023,
+  "client": "Tech Startup",
+  "role": "UX Designer, Visual Designer",
+  "content": "Graph is a web-based platform designed to make data accessible and understandable for non-technical users. The interface features drag-and-drop functionality, real-time collaboration, and customizable visualization templates.",
+  "tags": ["Data Visualization", "Web Design", "UX/UI", "Interactive Design"],
+  "featured": false,
+  "order": 4
+}

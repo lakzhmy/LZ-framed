@@ -1,6 +1,6 @@
 # LAKZHMY Portfolio
 
-Modern portfolio website built with Next.js 15, TypeScript, Tailwind CSS, and Sanity CMS.
+Modern portfolio website built with Next.js 15, TypeScript, and Tailwind CSS. **All content managed through local JSON files** - no external CMS required!
 
 ## Quick Start
 
@@ -9,58 +9,103 @@ Modern portfolio website built with Next.js 15, TypeScript, Tailwind CSS, and Sa
    npm install
    ```
 
-2. **Set up Sanity CMS:**
-
-   Create a Sanity project at https://www.sanity.io/manage
-
-   Update `.env.local` with your project ID:
-   ```
-   NEXT_PUBLIC_SANITY_PROJECT_ID=your-project-id
-   NEXT_PUBLIC_SANITY_DATASET=production
-   NEXT_PUBLIC_SANITY_API_VERSION=2024-01-08
-   ```
-
-3. **Run the development server:**
+2. **Run the development server:**
    ```bash
    npm run dev
    ```
 
-4. **Access the CMS:**
+3. **View your site:**
+   Open [http://localhost:3000](http://localhost:3000)
 
-   Navigate to `http://localhost:3000/studio` to manage your content
+## Adding Content
+
+### Add a New Project
+
+1. Create a new JSON file in `content/projects/`:
+   ```bash
+   content/projects/my-project.json
+   ```
+
+2. Add project data:
+   ```json
+   {
+     "_id": "my-project",
+     "title": "My Amazing Project",
+     "slug": "my-project",
+     "description": "A brief description of the project",
+     "coverImage": "/images/projects/my-project-cover.jpg",
+     "images": [
+       {
+         "url": "/images/projects/my-project-1.jpg",
+         "alt": "Project screenshot",
+         "caption": "Main view"
+       }
+     ],
+     "category": "UX/UI Design",
+     "year": 2024,
+     "client": "Client Name",
+     "role": "Designer",
+     "content": "Full project description goes here...",
+     "tags": ["Design", "UI/UX"],
+     "featured": true,
+     "order": 1
+   }
+   ```
+
+3. Add your images to `public/images/projects/`
+
+4. Refresh the page - your project appears automatically!
+
+### Update Site Settings
+
+Edit `content/settings.json`:
+```json
+{
+  "title": "Your Name - Designer",
+  "description": "Your bio",
+  "authorName": "Your Name",
+  "authorBio": "Your Title",
+  "email": "your@email.com",
+  "socialLinks": {
+    "linkedin": "https://linkedin.com/in/yourname",
+    "behance": "https://behance.net/yourname",
+    "instagram": "https://instagram.com/yourname"
+  }
+}
+```
 
 ## Project Structure
 
 ```
 portfolio/
+├── content/                  # YOUR CONTENT HERE
+│   ├── projects/            # Project JSON files
+│   │   ├── spectra.json
+│   │   ├── beans.json
+│   │   └── aesth.json
+│   └── settings.json        # Site settings
+│
+├── public/images/           # YOUR IMAGES HERE
+│   └── projects/            # Project images
+│
 ├── src/
-│   ├── app/              # Next.js app router pages
-│   │   ├── page.tsx      # Homepage
-│   │   ├── works/        # Works listing page
-│   │   ├── exploration/  # Exploration page
-│   │   ├── project/      # Individual project pages
-│   │   └── studio/       # Sanity Studio
-│   ├── components/       # React components
-│   ├── lib/              # Utilities and Sanity client
-│   └── types/            # TypeScript type definitions
-├── sanity/               # Sanity CMS configuration
-│   ├── schema.ts         # Content schemas
-│   ├── client.ts         # Sanity client
-│   └── env.ts            # Environment config
-└── sanity.config.ts      # Sanity Studio config
+│   ├── app/                 # Pages
+│   ├── components/          # React components
+│   ├── lib/                 # Content loader
+│   └── types/               # TypeScript types
 ```
 
 ## Features
 
+- ✅ No external CMS needed - edit JSON files
+- ✅ Local image storage
 - ✅ Next.js 15 with App Router
 - ✅ TypeScript for type safety
 - ✅ Tailwind CSS for styling
-- ✅ Sanity CMS for content management
 - ✅ Image optimization with Next.js Image
-- ✅ Responsive design
+- ✅ Fully responsive design
 - ✅ SEO-friendly with metadata
-- ✅ Dynamic project pages
-- ✅ Featured projects showcase
+- ✅ Static site generation
 
 ## Available Scripts
 
@@ -73,33 +118,62 @@ portfolio/
 
 ### Vercel (Recommended)
 
-1. Push your code to GitHub
-2. Import project to Vercel
-3. Add environment variables in Vercel dashboard
-4. Deploy
+1. Push to GitHub
+2. Import to [Vercel](https://vercel.com)
+3. Deploy!
 
 ### Other Platforms
 
-This project works with any Next.js hosting platform:
+Works with any static hosting:
 - Netlify
+- GitHub Pages
 - Railway
-- Render
-- DigitalOcean App Platform
+- DigitalOcean
 
 ## Content Management
 
-Access the Sanity Studio at `/studio` to:
-- Add/edit/delete projects
-- Upload images
-- Manage site settings
-- Update project categories and tags
+### Project Fields
+
+- **_id**: Unique identifier (use slug value)
+- **title**: Project name
+- **slug**: URL-friendly name (used in URLs)
+- **description**: Short summary (1-2 sentences)
+- **coverImage**: Path to cover image (e.g., "/images/projects/cover.jpg")
+- **images**: Array of gallery images
+- **category**: Project type (e.g., "UX/UI Design", "Product Design")
+- **year**: Project year
+- **client**: Client name (optional)
+- **role**: Your role (optional)
+- **content**: Full project description
+- **tags**: Array of tags
+- **featured**: true/false (shows on homepage)
+- **order**: Display order (lower numbers first)
+
+### Image Guidelines
+
+- Place images in `public/images/projects/`
+- Recommended sizes:
+  - Cover images: 1600x1200px
+  - Gallery images: 1600x900px
+- Formats: JPG or PNG
+- Optimize for web (< 500KB per image)
 
 ## Customization
 
-- **Colors/Fonts:** Edit `src/app/globals.css` and `src/app/layout.tsx`
-- **Navigation:** Edit `src/components/Navigation.tsx`
-- **Content Schema:** Edit `sanity/schema.ts`
-- **Page Layouts:** Edit files in `src/app/`
+### Colors
+Edit `src/app/globals.css`:
+```css
+:root {
+  --background: #ffffff;
+  --foreground: #111827;
+}
+```
+
+### Navigation
+Edit `src/components/Navigation.tsx`
+
+### Content Schema
+Edit `src/lib/content.ts` to modify data loading
 
 ## License
 

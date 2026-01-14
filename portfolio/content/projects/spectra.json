@@ -1,0 +1,27 @@
+{
+  "_id": "spectra",
+  "title": "Spectra",
+  "slug": "spectra",
+  "description": "Innovative and user-centered development of a mobile app for virtual art exhibitions, allowing users to explore art from around the world.",
+  "coverImage": "/images/projects/spectra-cover.jpg",
+  "images": [
+    {
+      "url": "/images/projects/spectra-1.jpg",
+      "alt": "Spectra app interface",
+      "caption": "Main gallery view"
+    },
+    {
+      "url": "/images/projects/spectra-2.jpg",
+      "alt": "Virtual exhibition",
+      "caption": "Immersive exhibition experience"
+    }
+  ],
+  "category": "Mobile App",
+  "year": 2024,
+  "client": "Art Gallery Project",
+  "role": "UX/UI Designer, Product Designer",
+  "content": "Spectra is a groundbreaking mobile application that brings virtual art exhibitions to users worldwide. The app features an intuitive interface for browsing curated collections, interactive 3D gallery spaces, and social features for art enthusiasts to connect and share their experiences.",
+  "tags": ["Mobile Design", "UX/UI", "Virtual Reality", "Art & Culture"],
+  "featured": true,
+  "order": 1
+}

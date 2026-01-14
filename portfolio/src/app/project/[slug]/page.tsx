@@ -1,8 +1,6 @@
-import { getProjectBySlug, getProjects } from '@/lib/sanity'
-import { urlFor } from '@/lib/sanity'
+import { getProjectBySlug, getProjects } from '@/lib/content'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
-import { PortableText } from '@portabletext/react'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 
@@ -21,7 +19,7 @@ export async function generateStaticParams() {
   }
 
   return projects.map((project) => ({
-    slug: project.slug.current,
+    slug: project.slug,
   }))
 }
 
@@ -51,18 +49,14 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
     notFound()
   }
 
-  const coverImageUrl = project.coverImage
-    ? urlFor(project.coverImage.asset).width(1600).height(900).url()
-    : null
-
   return (
     <main className="min-h-screen pt-20">
       {/* Hero Image */}
-      {coverImageUrl && (
+      {project.coverImage && (
         <section className="w-full h-[60vh] relative bg-gray-100">
           <Image
-            src={coverImageUrl}
-            alt={project.coverImage?.alt || project.title}
+            src={project.coverImage}
+            alt={project.title}
             fill
             className="object-cover"
             priority
@@ -116,8 +110,8 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           </p>
 
           {project.content && (
-            <div className="mt-8">
-              <PortableText value={project.content} />
+            <div className="mt-8 whitespace-pre-wrap">
+              {project.content}
             </div>
           )}
         </div>
@@ -143,26 +137,23 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       {project.images && project.images.length > 0 && (
         <section className="max-w-6xl mx-auto px-6 pb-20">
           <div className="space-y-12">
-            {project.images.map((image, index) => {
-              const imageUrl = urlFor(image.asset).width(1600).url()
-              return (
-                <div key={index} className="space-y-4">
-                  <div className="relative w-full aspect-video bg-gray-100">
-                    <Image
-                      src={imageUrl}
-                      alt={image.alt || `${project.title} image ${index + 1}`}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  {image.caption && (
-                    <p className="text-sm font-light text-gray-500 text-center">
-                      {image.caption}
-                    </p>
-                  )}
+            {project.images.map((image, index) => (
+              <div key={index} className="space-y-4">
+                <div className="relative w-full aspect-video bg-gray-100">
+                  <Image
+                    src={image.url}
+                    alt={image.alt || `${project.title} image ${index + 1}`}
+                    fill
+                    className="object-cover"
+                  />
                 </div>
-              )
-            })}
+                {image.caption && (
+                  <p className="text-sm font-light text-gray-500 text-center">
+                    {image.caption}
+                  </p>
+                )}
+              </div>
+            ))}
           </div>
         </section>
       )}

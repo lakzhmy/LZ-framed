@@ -1,4 +1,4 @@
-import { getProjects } from '@/lib/sanity'
+import { getProjects } from '@/lib/content'
 import ProjectCard from '@/components/ProjectCard'
 import type { Metadata } from 'next'
 
@@ -6,8 +6,6 @@ export const metadata: Metadata = {
   title: 'Works - LAKZHMY',
   description: 'Portfolio of design projects and works',
 }
-
-export const revalidate = 60
 
 export default async function WorksPage() {
   const projects = await getProjects()
@@ -33,11 +31,7 @@ export default async function WorksPage() {
         ) : (
           <div className="text-center py-20">
             <p className="text-gray-500 font-light">
-              No projects yet. Add projects through the{' '}
-              <a href="/studio" className="underline hover:opacity-70">
-                CMS
-              </a>
-              .
+              No projects yet. Add JSON files to the content/projects/ directory.
             </p>
           </div>
         )}

@@ -1,4 +1,4 @@
-import { getProjects } from '@/lib/sanity'
+import { getProjects } from '@/lib/content'
 import ProjectCard from '@/components/ProjectCard'
 import type { Metadata } from 'next'
 
@@ -6,8 +6,6 @@ export const metadata: Metadata = {
   title: 'Exploration - LAKZHMY',
   description: 'Design explorations and experimental work',
 }
-
-export const revalidate = 60
 
 export default async function ExplorationPage() {
   const projects = await getProjects()
@@ -38,11 +36,7 @@ export default async function ExplorationPage() {
         ) : (
           <div className="text-center py-20">
             <p className="text-gray-500 font-light">
-              No exploration projects yet. Add projects with category &quot;exploration&quot; through the{' '}
-              <a href="/studio" className="underline hover:opacity-70">
-                CMS
-              </a>
-              .
+              No exploration projects yet. Add JSON files with category &quot;exploration&quot; to content/projects/.
             </p>
           </div>
         )}

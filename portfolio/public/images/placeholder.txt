@@ -1,0 +1,17 @@
+Place your project images in:
+- /public/images/projects/
+
+Example structure:
+/public/images/projects/
+  ├── spectra-cover.jpg
+  ├── spectra-1.jpg
+  ├── spectra-2.jpg
+  ├── beans-cover.jpg
+  ├── aesth-cover.jpg
+  └── graph-cover.jpg
+
+Images should be:
+- JPG or PNG format
+- Cover images: ~1600x1200px recommended
+- Gallery images: ~1600x900px recommended
+- Optimized for web (< 500KB per image)

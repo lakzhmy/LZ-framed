@@ -1,8 +1,6 @@
-import { getFeaturedProjects, getSiteSettings } from '@/lib/sanity'
+import { getFeaturedProjects, getSiteSettings } from '@/lib/content'
 import ProjectCard from '@/components/ProjectCard'
 import Link from 'next/link'
-
-export const revalidate = 60 // Revalidate every 60 seconds
 
 export default async function Home() {
   const [projects, settings] = await Promise.all([

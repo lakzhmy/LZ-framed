@@ -1,93 +1,114 @@
-# Getting Started with Your New Portfolio
+# Getting Started with Your Portfolio
 
-## Quick Start (5 Minutes)
+## ✨ No Setup Required!
 
-1. **Create Sanity Account & Project**
-   - Visit: https://www.sanity.io/manage
-   - Sign up (free)
-   - Create new project
-   - Copy your Project ID
+Your portfolio uses **local JSON files** - no Sanity account, no database, no external services needed!
 
-2. **Update Environment Variables**
+## Quick Start (2 Minutes)
+
+1. **Navigate to portfolio folder:**
    ```bash
    cd portfolio
    ```
-   Edit `.env.local` file - replace `your-project-id` with your actual Sanity Project ID
 
-3. **Install & Run**
+2. **Install and run:**
    ```bash
    npm install
    npm run dev
    ```
 
-4. **Add Content**
-   - Open: http://localhost:3000/studio
-   - Create projects and site settings
-   - Visit homepage to see your content
+3. **View your site:**
+   Open http://localhost:3000
 
-## What's Built
+That's it! Your site is running with 4 sample projects already loaded.
 
-✅ **Modern Next.js 15 portfolio** - Fast, SEO-friendly, production-ready
-✅ **Sanity CMS** - Easy content management at `/studio`
-✅ **Responsive design** - Works on all devices
-✅ **Image optimization** - Automatic image compression
-✅ **TypeScript** - Type-safe code
-✅ **Tailwind CSS** - Modern styling
+## Adding Your Content
 
-## Deployment
+### Option 1: Edit Existing Projects
 
-**Option 1: Vercel (Easiest)**
-1. Push to GitHub
-2. Import to Vercel (https://vercel.com)
-3. Add environment variables
-4. Deploy!
+1. Open `portfolio/content/projects/spectra.json`
+2. Replace the content with your project info
+3. Save and refresh the browser
 
-**Option 2: Netlify**
-1. Push to GitHub
-2. Import to Netlify
-3. Add environment variables
-4. Deploy!
+### Option 2: Add New Projects
+
+1. Copy an existing JSON file:
+   ```bash
+   cd portfolio/content/projects
+   cp spectra.json my-project.json
+   ```
+
+2. Edit `my-project.json` with your content
+3. Add images to `portfolio/public/images/projects/`
+4. Refresh the browser
+
+### Update Your Info
+
+Edit `portfolio/content/settings.json`:
+```json
+{
+  "authorName": "Your Name",
+  "authorBio": "Your Title",
+  "email": "your@email.com"
+}
+```
 
 ## File Structure
 
 ```
 portfolio/
-├── src/app/          # Your pages (homepage, works, projects)
-├── src/components/   # Reusable components (navigation, cards)
-├── sanity/          # CMS configuration
-└── .env.local       # YOUR PROJECT ID GOES HERE
+├── content/              ← YOUR CONTENT
+│   ├── projects/        ← Your project JSON files
+│   └── settings.json    ← Your info
+│
+└── public/images/       ← YOUR IMAGES
+    └── projects/        ← Project images
 ```
+
+## What's Built
+
+✅ **Homepage** - Shows featured projects
+✅ **Works page** - All projects grid
+✅ **Exploration page** - Experimental work
+✅ **Project pages** - Individual project details
+✅ **Fully responsive** - Mobile, tablet, desktop
+
+## Deployment
+
+### Vercel (Free)
+1. Push to GitHub
+2. Go to [vercel.com](https://vercel.com)
+3. Import your repo
+4. Deploy!
+
+### Netlify (Free)
+1. Push to GitHub
+2. Go to [netlify.com](https://netlify.com)
+3. Import your repo
+4. Deploy!
 
 ## Key Commands
 
 ```bash
-npm run dev      # Start development (http://localhost:3000)
-npm run build    # Build for production
-npm run start    # Run production build locally
-npm run lint     # Check code quality
+npm run dev      # Development server
+npm run build    # Production build
+npm run start    # Run production locally
 ```
 
-## Need Help?
+## What's Different from Before?
 
-- Read `portfolio/SETUP.md` for detailed instructions
-- Read `portfolio/README.md` for technical details
-- Read `CLAUDE.md` for architecture overview
+**Old (Framer + Sanity):**
+- ❌ Needed external Sanity account
+- ❌ Required API keys
+- ❌ External database
+- ❌ Complex setup
 
-## What's Different from Framer?
-
-**Framer Version** (`frame/` folder):
-- Static HTML files
-- Can't edit without Framer
-- Limited hosting options
-- No CMS
-
-**New Version** (`portfolio/` folder):
-- Full CMS control
-- Edit content without code
-- Host anywhere (Vercel, Netlify, etc.)
-- Add features easily
-- Modern tech stack
+**New (Local JSON):**
+- ✅ Edit files directly
+- ✅ No external services
+- ✅ Works offline
+- ✅ Simple and fast
 
 ---
 
-**You're all set!** Start by creating your Sanity project and adding your first portfolio piece.
+**You're ready to go!** Just edit the JSON files in `content/projects/` to add your work.

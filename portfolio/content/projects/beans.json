@@ -1,0 +1,22 @@
+{
+  "_id": "beans",
+  "title": "Beans",
+  "slug": "beans",
+  "description": "A modern coffee subscription service with focus on sustainability and direct trade relationships with farmers.",
+  "coverImage": "/images/projects/beans-cover.jpg",
+  "images": [
+    {
+      "url": "/images/projects/beans-1.jpg",
+      "alt": "Beans packaging design",
+      "caption": "Sustainable packaging solution"
+    }
+  ],
+  "category": "Product Design",
+  "year": 2023,
+  "client": "Beans Coffee Co.",
+  "role": "Industrial Designer",
+  "content": "Beans is a comprehensive branding and product design project for a coffee subscription service. The project included packaging design, brand identity, and user experience design for both physical and digital touchpoints.",
+  "tags": ["Product Design", "Branding", "Sustainability", "Packaging"],
+  "featured": true,
+  "order": 2
+}
